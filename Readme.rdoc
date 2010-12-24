@@ -7,27 +7,27 @@ This is where altered_views comes to help. It allows you to inherit the engine's
 
 You view in the *engine* could look like this:
 
-	app/views/user_session/new.html.erb [engine]
+ app/views/user_session/new.html.erb [engine]
 	
-	<h1 id="login-title">Login:</h1>
-	<div class="form-container">
-	<!-- Code to display login box, which I omit -->
-	</div>
-	<span class="legal">Some legal nonsence</span>
+ <h1 id="login-title">Login:</h1>
+ <div class="form-container">
+ <!-- Code to display login box, which I omit -->
+ </div>
+ <span class="legal">Some legal nonsence</span>
 
 Now we will alter customizing only required parts. This view goes inside your *application*.
 
-	app/views/user_session/new.html.erb [application]
+ app/views/user_session/new.html.erb [application]
 	
-	<%= inherit_view "parent:admin/cataloguer/categories/edit" do %>
-		<%= content "#login-title" do %>
-		Login into my company's account:
-		<% end %>
+ <%= inherit_view "parent:admin/cataloguer/categories/edit" do %>
+   <%= content "#login-title" do %>
+     Login into my company's account:
+   <% end %>
 		
-		<%= append ".legal" do %>
-			<p>Exta clause</p>
-		<% end %>
-	<% end %>
+   <%= append ".legal" do %>
+     <p>Exta clause</p>
+   <% end %>
+ <% end %>
 
 
 altered_views support the following DOM modifiers:

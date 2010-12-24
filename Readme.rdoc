@@ -1,0 +1,46 @@
+== Synopsis
+Everybody is accustomed now to the power and flexibility inheritance gives you in OOP. But when it comes to view life is getting really complex! Let me give you an example. 
+
+You have a nice rails engine that provides you with authentication functionality you use throughout your applications. But the login page should really look slightly different in this app and that registration page should carry different logo, name and copyright. The only option you have is to copy those views into the app and redo them. That is it, from this point you've lost it, cause any bugs you fixed in the views inside the engine still live in the copied views.
+
+This is where altered_views comes to help. It allows you to inherit the engine's view and alter only the bits you need referring to them using css selectors.
+
+You view in the *engine* could look like this:
+
+	app/views/user_session/new.html.erb [engine]
+	
+	<h1 id="login-title">Login:</h1>
+	<div class="form-container">
+	<!-- Code to display login box, which I omit -->
+	</div>
+	<span class="legal">Some legal nonsence</span>
+
+Now we will alter customizing only required parts. This view goes inside your *application*.
+
+	app/views/user_session/new.html.erb [application]
+	
+	<%= inherit_view "parent:admin/cataloguer/categories/edit" do %>
+		<%= content "#login-title" do %>
+		Login into my company's account:
+		<% end %>
+		
+		<%= append ".legal" do %>
+			<p>Exta clause</p>
+		<% end %>
+	<% end %>
+
+
+altered_views support the following DOM modifiers:
+
+* content — replace the element's content
+* before — place content before the node
+* after — place content after the node
+* append — content in appended in the end of the element
+* prepend — content in placed as the first child of the element before other content
+
+== Installing
+altered_views is available on gemcutter so all you have to do it
+  gem install altered_views
+
+== Requirements
+altered_views was written to extend Rails 3.0 functionality and uses nokogiri — a fast and powerful XML/HTML processing engine.

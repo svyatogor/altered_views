@@ -1,6 +1,6 @@
-require "inherited_views/path_set_extension"
+require "altered_views/path_set_extension"
 
-module InheriteddViews
+module AltereddViews
 	def inherit_view(name, &block)
 		content = capture {render(:template => name) }
 		@doc = Nokogiri::HTML content
@@ -47,4 +47,4 @@ private
 	end
 end
 
-ActionController::Base.send :add_template_helper, InheriteddViews
+ActionController::Base.send :add_template_helper, AltereddViews

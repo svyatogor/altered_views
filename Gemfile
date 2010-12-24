@@ -1,4 +1,4 @@
 source :gemcutter
 
-# Specify your gem's dependencies in inherited_views.gemspec
+# Specify your gem's dependencies in altered_views.gemspec
 gemspec

@@ -4,7 +4,7 @@ module AltereddViews
 	def inherit_view(name, &block)
 		content = capture {render(:template => name) }
 		@doc = Nokogiri::HTML content
-		yield
+		block.arity == 0 ? yield : yield(@doc)
 		raw @doc.css("body > *").to_s
 	end	
 

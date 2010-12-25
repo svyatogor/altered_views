@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.extra_rdoc_files = [
-    "Readme.markdown"
+    "Readme.rdoc"
   ]
 end

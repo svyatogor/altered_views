@@ -1,3 +1,5 @@
+= altered_views
+
 == Synopsis
 Everybody is accustomed now to the power and flexibility inheritance gives you in OOP. But when it comes to view life is getting really complex! Let me give you an example. 
 
@@ -42,5 +44,14 @@ altered_views support the following DOM modifiers:
 altered_views is available on gemcutter so all you have to do it
   gem install altered_views
 
+Then include it in your Gemfile
+ gem altered_views
+
 == Requirements
 altered_views was written to extend Rails 3.0 functionality and uses nokogiri — a fast and powerful XML/HTML processing engine.
+
+== Known issues
+This is the very first version of the gem and might contain bugs. 
+
+* it assumes you are using layouts in your application. If your view contains the whole page — it will cause problems. 
+* head section modification is not supported

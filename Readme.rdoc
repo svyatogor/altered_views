@@ -31,6 +31,7 @@ Now we will alter customizing only required parts. This view goes inside your *a
    <% end %>
  <% end %>
 
+Note that the template name in the helper call starts with +parent:+ this allow one to render next view hierarchy, e.g. access the view of egine from the application
 
 altered_views support the following DOM modifiers:
 
@@ -40,6 +41,12 @@ altered_views support the following DOM modifiers:
 * append — content in appended in the end of the element
 * prepend — content in placed as the first child of the element before other content
 
+If you need more complex operations you can refer directly to Nokogiri document by passing an argument to +inherit_view+ clause:
+
+ <%= inherit_view "parent:admin/cataloguer/categories/edit" do |doc| %>
+ # doc is a nokogiri document
+ <% end %>
+ 
 == Installing
 altered_views is available on gemcutter so all you have to do it
   gem install altered_views

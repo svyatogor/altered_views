@@ -31,7 +31,7 @@ Now we will alter customizing only required parts. This view goes inside your *a
    <% end %>
  <% end %>
 
-Note that the template name in the helper call starts with +parent:+ this allow one to render next view hierarchy, e.g. access the view of egine from the application
+Note that the template name in the helper call starts with +parent+ this allow one to render next view hierarchy, e.g. access the view of egine from the application
 
 altered_views support the following DOM modifiers:
 

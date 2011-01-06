@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.extra_rdoc_files = [
-    "Readme.rdoc"
+    "Readme.rdoc",
+		"COPYRIGHT"
   ]
 end
